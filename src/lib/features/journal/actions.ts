@@ -1,17 +1,11 @@
-// src/lib/api-connector.ts
-
 import { apiConnector } from "@/apis/api-connector";
 import { JournalEntry, Mood, WeatherData } from "@/types/pokemon";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosRequestConfig, Method } from "axios";
 
-
-
-
-// Weather API specific connector
 export const fetchWeatherData = async (lat: number, lon: number) => {
   try {
-    // Call your Next.js API route
+    
     const response = await apiConnector(
       "get",
       `/api/weather?lat=${lat}&lon=${lon}`,
@@ -27,7 +21,6 @@ export const fetchWeatherData = async (lat: number, lon: number) => {
   }
 };
 
-// Journal entries actions
 export const addJournalEntry = createAsyncThunk(
   "journal/addEntry",
   async (

@@ -11,12 +11,12 @@ import {
   PencilIcon,
   ListBulletIcon,
 } from "@heroicons/react/24/outline";
-import EntryList from "@/components/ui/entry-list";
 
 import { JournalEntry } from "@/types/pokemon";
 import { deleteEntry } from "@/lib/features/journal";
 import CalendarView from "@/components/ui/calender-view";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import EntryList from "@/components/ui/entry-list";
 
 export default function Home() {
   const dispatch = useDispatch<AppDispatch>();
@@ -46,7 +46,7 @@ export default function Home() {
                 "Unable to get your location. Some features may be limited."
               );
             },
-            { timeout: 10000 } // 10 second timeout
+            { timeout: 10000 }
           );
         } catch (error) {
           console.error("Error getting geolocation:", error);

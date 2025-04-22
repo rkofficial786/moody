@@ -1,5 +1,3 @@
-// src/store/slices/weather-slice.ts
-
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchWeather } from "./actions";
 import { Coordinates, WeatherState } from "@/types/pokemon";
@@ -8,7 +6,7 @@ const initialState: WeatherState = {
   currentWeather: null,
   coordinates: null,
   isLoading: false,
-  error: null
+  error: null,
 };
 
 export const weatherSlice = createSlice({
@@ -29,8 +27,8 @@ export const weatherSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchWeather.fulfilled, (state, action) => {
-        console.log(action,"action");
-        
+        console.log(action, "action");
+
         state.isLoading = false;
         state.currentWeather = action.payload;
       })
@@ -38,7 +36,7 @@ export const weatherSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload as string;
       });
-  }
+  },
 });
 
 export const { setCoordinates, clearWeather } = weatherSlice.actions;

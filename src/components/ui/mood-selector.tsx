@@ -4,7 +4,7 @@
 import React from 'react';
 import { Mood } from '@/types/pokemon';
 
-// Define available moods with more vibrant colors
+
 export const moods: Mood[] = [
   { id: 1, name: 'Happy', emoji: '😊', color: 'bg-yellow-500 dark:bg-yellow-400' },
   { id: 2, name: 'Excited', emoji: '🤩', color: 'bg-red-600 dark:bg-red-500' },

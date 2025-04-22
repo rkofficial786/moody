@@ -15,7 +15,7 @@ import journalSlice from "./features/journal";
 import weatherSlice from "./features/weather";
 
 const persistConfig = {
-  key: "pokemon",
+  key: "moody",
   storage,
 
   whitelist: ["jorunal"],

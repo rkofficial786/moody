@@ -26,11 +26,9 @@ const MoodJournalForm: React.FC = () => {
     type: "success" | "error";
   } | null>(null);
 
-  // Set default mood based on temperature if extreme
   useEffect(() => {
     if (currentWeather && !selectedMood) {
       if (currentWeather.temperature > 40) {
-        // Auto-suggest "Angry" mood for very hot temperatures
         const hotMood = moods.find((m) => m.name === "Angry");
         if (hotMood) {
           setSelectedMood(hotMood);
@@ -45,12 +43,10 @@ const MoodJournalForm: React.FC = () => {
     }
   }, [currentWeather, selectedMood]);
 
-  // Handle mood selection
   const handleMoodSelect = (mood: Mood) => {
     setSelectedMood(mood);
   };
 
-  // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -83,11 +79,9 @@ const MoodJournalForm: React.FC = () => {
         })
       );
 
-      // Reset form
       setSelectedMood(null);
       setNotes("");
 
-      // Show success notification
       setNotification({
         message: "Journal entry saved successfully!",
         type: "success",
@@ -105,12 +99,10 @@ const MoodJournalForm: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-gray-800 dark:text-gray-100 animate-fade-in">
-      {/* Current Date */}
       <h2 className="text-2xl font-bold mb-6 text-indigo-600 dark:text-indigo-400">
         {formatDate(new Date().toDateString())}
       </h2>
 
-      {/* Weather Display */}
       <div className="mb-6">
         <WeatherDisplay
           weatherData={currentWeather}
@@ -145,13 +137,11 @@ const MoodJournalForm: React.FC = () => {
       )}
 
       <form onSubmit={handleSubmit} className="animate-slide-up">
-        {/* Mood Selector */}
         <MoodSelector
           selectedMood={selectedMood}
           onMoodSelect={handleMoodSelect}
         />
 
-        {/* Notes Input */}
         <div className="mb-6">
           <label
             htmlFor="notes"
@@ -169,7 +159,6 @@ const MoodJournalForm: React.FC = () => {
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={submitting || !selectedMood}
