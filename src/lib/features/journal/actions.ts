@@ -1,7 +1,7 @@
 import { apiConnector } from "@/apis/api-connector";
 import { JournalEntry, Mood, WeatherData } from "@/types/pokemon";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { AxiosRequestConfig, Method } from "axios";
+
 
 export const fetchWeatherData = async (lat: number, lon: number) => {
   try {

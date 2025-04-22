@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 // src/utils/export-entries-pdf.ts
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
@@ -54,7 +52,7 @@ export const exportAllEntriesToPDF = (entries: JournalEntry[]) => {
     theme: "striped",
   });
 
-  // Add page number
+  // @ts-ignore
   const pageCount = doc.internal.getNumberOfPages();
   for (let i = 1; i <= pageCount; i++) {
     doc.setPage(i);
@@ -112,9 +110,10 @@ export const exportAllEntriesToCSV = (entries: JournalEntry[]) => {
   const fileName = `mood-journal-entries-${
     new Date().toISOString().split("T")[0]
   }.csv`;
-
+  // @ts-ignore
   if (navigator.msSaveBlob) {
     // For IE 10+
+    // @ts-ignore
     navigator.msSaveBlob(blob, fileName);
   } else {
     link.href = URL.createObjectURL(blob);
